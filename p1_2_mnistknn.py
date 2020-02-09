@@ -49,11 +49,28 @@ def find_neighbors(train, train_labels, test_p, radius, k):
 def classify(train, train_label, test_p, radius, k):
     neighbors = find_neighbors(train, train_label, test_p, radius, k)
     print(neighbors)
-    output_values = [row[-1] for row in neighbors]
-    classification = max(set(output_values), key=output_values.count)
+    classification = max(set(neighbors), key=neighbors.count)
     return classification
 
+# KNN
+def KNN(train, train_label, test, radius, k):
+    predictions=[]
+    for test_p in test:
+        predictions.append(classify(train, train_label, test_p, radius, k))
+    return predictions
 
-classification = classify(X_train, y_train, X_test[0], 5, 7)
-print(classification)
-print(y_test[0])
+def KNN_accuracy(predictions, test):
+    correct=0
+    for i in range(len(predictions)-1):
+        if predictions[i] == test[i]:
+            correct += 1
+    accuracy = correct/len(predictions)*100
+    return accuracy
+
+
+X_test_t = X_test[:1000]
+y_test_t = y_test[:1000]
+
+predictions =  KNN(X_train, y_train, y_test_t, 5, 7)
+accuracy = KNN_accuracy(predictions,y_test_t)
+print(accuracy)
