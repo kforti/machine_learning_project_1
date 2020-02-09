@@ -32,12 +32,12 @@ def euclid_distance(p1, p2):
 
 
 # Find nearest Neighbors
-def find_neighbors(train, test_p, radius, k):
+def find_neighbors(train, train_labels, test_p, radius, k):
     distances = []
-    for train_p in train:
-        distance = euclid_distance(test_p, train_p)
+    for i in range(len(train)-1):
+        distance = euclid_distance(test_p, train[i])
         if len(distances) < k or distance < radius:
-            distances.append((train_p, distance))
+            distances.append((train_labels[i], distance))
     distances.sort(key=lambda tup: tup[1])
     neighbors = []
     for i in range(k):
@@ -46,12 +46,14 @@ def find_neighbors(train, test_p, radius, k):
 
 
 # Classify test point
-def classify(train, test_p, radius, k):
-    neighbors = find_neighbors(train, test_p, radius, k)
+def classify(train, train_label, test_p, radius, k):
+    neighbors = find_neighbors(train, train_label, test_p, radius, k)
+    print(neighbors)
     output_values = [row[-1] for row in neighbors]
     classification = max(set(output_values), key=output_values.count)
     return classification
 
 
-classification = classify(X_train, X_test[0], 10, 3)
+classification = classify(X_train, y_train, X_test[0], 5, 7)
 print(classification)
+print(y_test[0])
