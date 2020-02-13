@@ -35,14 +35,14 @@ def euclid_distance(p1, p2):
 # Find nearest Neighbors
 def find_neighbors(train, train_labels, test_p, k):
     distances = []
-    for i in range(len(train)-1):
+    for i in range(len(train)):
         distance = euclid_distance(test_p, train[i])
         if len(distances) < k:
             distances.append((train_labels[i], distance))
-            distances.sort(key=lambda tup: tup[1])
+            #distances.sort(key=lambda tup: tup[1])
         elif distance < distances[k-1][1]:
             distances.append((train_labels[i], distance))
-            distances.sort(key=lambda tup: tup[1])
+    distances.sort(key=lambda tup: tup[1])
     neighbors = []
     for i in range(k):
         neighbors.append(distances[i][0])
@@ -50,7 +50,7 @@ def find_neighbors(train, train_labels, test_p, k):
 
 
 # Classify test point
-def classify(train, train_label, test_p, k):
+def classify(test_p, train, train_label, k):
     neighbors = find_neighbors(train, train_label, test_p, k)
     classification = max(set(neighbors), key=neighbors.count)
     return classification
@@ -58,29 +58,35 @@ def classify(train, train_label, test_p, k):
 
 # KNN
 def KNN(train, train_label, test, k):
-    predictions=[]
-    for test_p in test:
-        predictions.append(classify(train, train_label, test_p, k))
+    import multiprocessing
+    from functools import partial
+    import os
+
+    pool = multiprocessing.Pool(os.cpu_count())
+    #predictions=[]
+    predictions = pool.map(partial(classify, train=train, train_label=train_label, k=k), test)
+    # for test_p in test:
+    #     predictions.append(classify(train, train_label, test_p, k))
     return predictions
 
 
 def KNN_accuracy(predictions, test):
     correct=0
-    for i in range(len(predictions)-1):
+    for i in range(len(predictions)):
         if predictions[i] == test[i]:
             correct += 1
     accuracy = correct/len(predictions)*100
     return accuracy
 
 
-X_test_t = X_test[:10]
-y_test_t = y_test[:10]
+X_test_t = X_test[:100]
+y_test_t = y_test[:100]
 
 
 runstart = time.time()
 predictions =  KNN(X_train, y_train, X_test_t, 7)
 runstop = time.time()
-accuracy = KNN_accuracy(predictions,y_test_t)
+accuracy = KNN_accuracy(predictions, y_test_t)
 
 print('Prediction accuracy ' + str(accuracy))
 print('TOTAL EXECUTION TIME FOR KNN: ' + str(runstop - runstart))
