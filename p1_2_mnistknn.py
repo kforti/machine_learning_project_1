@@ -72,15 +72,16 @@ def KNN_accuracy(predictions, test):
     accuracy = correct/len(predictions)*100
     return accuracy
 
-
-X_test_t = X_test[:10]
-y_test_t = y_test[:10]
+X_train_t = X_train[:10000]
+y_train_t = y_train[:10000]
+X_test_t = X_test[:1000]
+y_test_t = y_test[:1000]
 
 
 runstart = time.time()
-predictions =  KNN(X_train, y_train, X_test_t, 7)
+predictions =  KNN(X_train_t, y_train_t, X_test_t, 5)
 runstop = time.time()
-accuracy = KNN_accuracy(predictions,y_test_t)
+accuracy = KNN_accuracy(predictions, y_test_t)
 
 print('Prediction accuracy ' + str(accuracy))
 print('TOTAL EXECUTION TIME FOR KNN: ' + str(runstop - runstart))
