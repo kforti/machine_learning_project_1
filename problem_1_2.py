@@ -29,8 +29,8 @@ ntrain = 10000
 ntest = 1000
 x_train = X_train_set[:ntrain]
 y_train = y_train_set[:ntrain]
-x_test = X_test_set[:ntrain]
-y_test = y_test_set[:ntrain]
+x_test = X_test_set[:ntest]
+y_test = y_test_set[:ntest]
 
 # part 1 Run mnistknndemo
 # KNN classifier rewrote mnistknndemo.m from pmtk3
