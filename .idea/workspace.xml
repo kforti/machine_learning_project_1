@@ -1,7 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="dfe3c85f-634f-4aef-b103-b34ef047f7d8" name="Default Changelist" comment="" />
+    <list default="true" id="dfe3c85f-634f-4aef-b103-b34ef047f7d8" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/problem_1_1/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/problem_1_2/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/problem_1_2/flann.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/problem_1_2/problem_1_2.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/problem_1_3/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/problem_1_3/discussion" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/problem_1_3/problem_1_3.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/problem_1_4/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/problem_1_4.py" beforeDir="false" afterPath="$PROJECT_DIR$/problem_1_4/problem_1_4.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -10,8 +21,17 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Jupyter Notebook" />
         <option value="Python Script" />
       </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="JupyterTrust" id="331198b6-c2e9-42a3-99e1-86a53b944b1c">
+    <option name="files">
+      <option value="problem_1_1/problem_1_1.ipynb" />
     </option>
   </component>
   <component name="ProjectId" id="1XMbQ5AGLpVmcvujUroXL7wAfSQ" />
@@ -22,7 +42,15 @@
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$USER_HOME$/PycharmProjects/ml_project_1" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/problem_1_4" />
+      <recent name="$PROJECT_DIR$/problem_1_1" />
+    </key>
   </component>
   <component name="RunManager">
     <configuration name="problem_1_4" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
@@ -37,7 +65,8 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/problem_1_4.py" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/problem_1_4/problem_1_4.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -62,14 +91,24 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1580858890948</updated>
+      <workItem from="1581565453018" duration="73000" />
+      <workItem from="1581565571530" duration="15611000" />
     </task>
     <servers />
   </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
   <component name="WindowStateProjectService">
-    <state x="805" y="317" width="424" height="491" key="FileChooserDialogImpl" timestamp="1580859009618">
+    <state x="857" y="645" width="602" height="397" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1582042633868">
       <screen x="0" y="27" width="3840" height="1053" />
     </state>
-    <state x="805" y="317" width="424" height="491" key="FileChooserDialogImpl/0.27.3840.1053@0.27.3840.1053" timestamp="1580859009618" />
+    <state x="857" y="645" width="602" height="397" key="#com.intellij.fileTypes.FileTypeChooser/0.27.3840.1053@0.27.3840.1053" timestamp="1582042633868" />
+    <state x="805" y="317" width="374" height="505" key="FileChooserDialogImpl" timestamp="1582042406702">
+      <screen x="0" y="27" width="3840" height="1053" />
+    </state>
+    <state x="805" y="317" width="424" height="491" key="FileChooserDialogImpl/0.27.3840.1053@0.27.3840.1053" timestamp="1582042406702" />
+    <state x="458" y="280" width="374" height="505" key="FileChooserDialogImpl/70.27.1850.1053@70.27.1850.1053" timestamp="1581990211191" />
     <state width="1763" height="275" key="GridCell.Tab.0.bottom" timestamp="1580860185562">
       <screen x="0" y="27" width="3840" height="1053" />
     </state>
@@ -90,5 +129,9 @@
       <screen x="0" y="27" width="3840" height="1053" />
     </state>
     <state x="516" y="188" width="1022" height="737" key="SettingsEditor/0.27.3840.1053@0.27.3840.1053" timestamp="1580859014902" />
+    <state x="617" y="342" key="com.intellij.ide.util.TipDialog" timestamp="1581565575899">
+      <screen x="70" y="27" width="1850" height="1053" />
+    </state>
+    <state x="617" y="342" key="com.intellij.ide.util.TipDialog/70.27.1850.1053@70.27.1850.1053" timestamp="1581565575899" />
   </component>
 </project>
