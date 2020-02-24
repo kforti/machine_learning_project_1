@@ -31,7 +31,7 @@ def logistic_regression_classifier(X_train, X_test, y_train, y_test):
     print(confusion_matrix(y_test, y_pred))
     return y_pred
 
-def micro_averaged_percision_recall(Y_test, y_score, fpath):
+def micro_averaged_percision_recall(Y_test, y_score, fpath, model_name):
 
     average_precision = average_precision_score(Y_test, y_score,
                                                          average="micro")
@@ -47,12 +47,12 @@ def micro_averaged_percision_recall(Y_test, y_score, fpath):
     plt.ylabel('Precision')
     plt.ylim([0.0, 1.05])
     plt.xlim([0.0, 1.0])
-    plt.title(
+    plt.title(model_name + ' ' +
         'Average precision score, micro-averaged over all classes: AP={0:0.2f}'
         .format(average_precision))
     plt.savefig(fpath)
 
-def micro_averaged_roc(Y_test, y_score, fpath, lw=2):
+def micro_averaged_roc(Y_test, y_score, fpath, model_name, lw=2):
 
 
     precision, recall, _ = roc_curve(Y_test.ravel(), y_score.ravel())
@@ -68,7 +68,7 @@ def micro_averaged_roc(Y_test, y_score, fpath, lw=2):
     plt.ylim([0.0, 1.05])
     plt.xlabel('False Positive Rate')
     plt.ylabel('True Positive Rate')
-    plt.title('Some extension of Receiver operating characteristic to multi-class')
+    plt.title('{} Receiver operating characteristic to multi-class'.format(model_name))
     plt.legend(loc="lower right")
     plt.savefig(fpath)
     plt.close()
@@ -80,8 +80,8 @@ def classifier_metrics(test, predictions):
         Y_test = label_binarize(test, classes=[0, 1, 2])
         y_score = label_binarize(pset, classes=[0, 1, 2])
 
-        #micro_averaged_percision_recall(Y_test, y_score, "./problem_1_4/{}_precision_recall_curve".format(name))
-        micro_averaged_roc(Y_test, y_score, "./problem_1_4/{}_roc_curve".format(name))
+        micro_averaged_percision_recall(Y_test, y_score, "./problem_1_4/{}_precision_recall_curve".format(name), name)
+        micro_averaged_roc(Y_test, y_score, "./problem_1_4/{}_roc_curve".format(name), name)
 
 
 if __name__ == '__main__':
