@@ -52,6 +52,19 @@ print('Total execution time for KNN: ' + str(knn_c_time))
 
 # part 2 FLANN
 
+pyflann.set_distance_type('euclidean', order=2)
+flann = pyflann.FLANN()
+flannstart = time.time()
+index_params = flann.build_index(x_train, log_level='info', algorithm='kmeans', branching=32, iterations=7)
+neighbor, dist = flann.nn_index(x_test, num_neigbors=5, checks=index_params['checks'])
+flann_prediction = y_train[neighbor]
+flannstop = time.time()
+flann_accuracy = accuracy_score(y_test, flann_prediction)
+flann_c_time = flannstop - flannstart
+
+print('Accuracy for Approximate Nearest Neighbors: ' + str(flann_accuracy * 100))
+print('Total execution time for Approximate Nearest Neighbors: ' + str(flann_c_time))
+
 # part 3 multi-class logistic regression
 
 logi_reg = LogisticRegression(multi_class='multinomial', solver='lbfgs', max_iter=13500)
